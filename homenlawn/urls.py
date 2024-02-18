@@ -15,8 +15,15 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path("handl/", include("handl.urls")),
+    path("admin/", admin.site.urls),
 ]
+
+# Add some labels to the admin pages replacing default text
+#
+admin.site.site_header = "Home and Lawn Hero Admin"
+admin.site.site_title = "Home and Lawn Hero Admin Portal"
+admin.site.index_title = "Welcome to Home and Lawn Hero Portal"
